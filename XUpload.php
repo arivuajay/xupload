@@ -21,6 +21,11 @@ class XUpload extends CJuiInputWidget {
     public $url;
 
     /**
+     * the maxNumberOfFiles to the upload maximum upload file count handler
+     * @var int
+     */
+    public $maxNumberOfFiles;
+    /**
      * set to true to use multiple file upload
      * @var boolean
      */
@@ -111,6 +116,11 @@ class XUpload extends CJuiInputWidget {
 
         $this->options['url'] = $this->url;
         $this->options['autoUpload'] = $this -> autoUpload;
+	
+	if(isset($this->maxNumberOfFiles)) {
+	    $this->options['maxNumberOfFiles'] = (int) $this->maxNumberOfFiles;
+	}
+	
 
         if (!$this->multiple) {
             $this->options['maxNumberOfFiles'] = 1;
